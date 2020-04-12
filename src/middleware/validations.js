@@ -38,3 +38,16 @@ export function validateCustomerLogin(customer) {
   });
   return schema.validate(customer);
 }
+
+export function validateNewService(service) {
+  const schema = Joi.object({
+    service_name: Joi.string()
+      .max(50)
+      .required(),
+    service_description: Joi.string()
+      .max(255)
+      .optional()
+      .allow(''),
+  });
+  return schema.validate(service);
+}
