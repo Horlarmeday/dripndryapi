@@ -44,6 +44,9 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
+      shipping_region_id: {
+        type: DataTypes.INTEGER,
+      },
       country: DataTypes.STRING(100),
       state: DataTypes.STRING(100),
       city: DataTypes.STRING(100),
