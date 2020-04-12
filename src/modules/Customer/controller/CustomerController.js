@@ -128,7 +128,7 @@ class CustomerController {
   static async updateCustomerProfile(req, res, next) {
     try {
       const customer = await Customer.findByPk(req.user.customer_id);
-      if (!customer) return res.status(404).json('Customer noy found');
+      if (!customer) return res.status(404).json('Customer not found');
 
       const updatedCustomerProfile = await customer.update(req.body);
 
