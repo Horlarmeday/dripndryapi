@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "mahmud",
-    "password": "mahmud",
-    "database": "drip-n-dry",
-    "host": "127.0.0.1",
+    "username": "DB_USER",
+    "password": "DB_PASSWORD",
+    "database": "DB_NAME",
+    "host": "DB_HOST",
     "dialect": "mysql"
   },
   "test": {
