@@ -48,6 +48,7 @@
     "paginate-info": "^1.0.4",
     "pdfkit": "^0.11.0",
     "sequelize": "^5.21.6",
+    "sequelize-paginate": "^1.1.6",
     "unirest": "^0.6.0",
     "uuid": "^3.3.3",
     "winston": "^3.2.1"
