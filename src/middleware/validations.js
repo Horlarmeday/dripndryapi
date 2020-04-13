@@ -51,3 +51,21 @@ export function validateNewService(service) {
   });
   return schema.validate(service);
 }
+
+export function validateNewProduct(product) {
+  const schema = Joi.object({
+    product_name: Joi.string()
+      .max(50)
+      .required(),
+    service_charge: Joi.number().required(),
+    description: Joi.string()
+      .max(255)
+      .optional()
+      .allow(''),
+    image: Joi.string()
+      .max(255)
+      .optional()
+      .allow(''),
+  });
+  return schema.validate(product);
+}
