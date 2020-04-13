@@ -9,6 +9,7 @@ import rateLimit from 'express-rate-limit';
 import error from '../middleware/error';
 import customerRoutes from '../modules/Customer/routes/CustomerRoutes';
 import serviceRoutes from '../modules/Service/routes/ServiceRoutes';
+import productRoutes from '../modules/Product/routes/ProductRoutes';
 import './logger';
 
 const server = express();
@@ -33,6 +34,7 @@ server.use(
 server.use('/static', express.static(path.join(__dirname, '../public')));
 server.use('/api/v1/customer', customerRoutes);
 server.use('/api/v1/service', serviceRoutes);
+server.use('/api/v1/product', productRoutes);
 
 server.use((req, res, next) => {
   // set the timeout for all HTTP requests
