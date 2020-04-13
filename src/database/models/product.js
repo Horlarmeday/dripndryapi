@@ -1,3 +1,5 @@
+import sequelizePaginate from 'sequelize-paginate';
+
 module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define(
     'Product',
@@ -38,5 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'service_id',
     });
   };
+
+  sequelizePaginate.paginate(Product);
   return Product;
 };
