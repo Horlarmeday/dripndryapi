@@ -7,11 +7,11 @@
  * - searchServices - Returns a list of services that matches the query string
  * - updateService - allow admin to edit and update a service
  * - deleteService - allow admin to delete a service
- * - getAllServiceProducts - Returns all products in a particular service
+ * - getAllProductsInAService - Returns all products in a particular service
  */
 import { validateNewService } from '../../../middleware/validations';
 
-const { Service } = require('../../../database/models');
+const { Service, Product } = require('../../../database/models');
 
 /**
  *
@@ -64,7 +64,12 @@ class ServiceController {
     } = req;
 
     try {
-      const options = { page, paginate: 10, order: [['createdAt', 'DESC']] };
+      const options = {
+        page,
+        paginate: 10,
+        order: [['createdAt', 'DESC']],
+        include: [{ model: Product, as: 'products' }],
+      };
       const services = await Service.paginate(options);
 
       return res.status(200).json({
@@ -148,6 +153,31 @@ class ServiceController {
       return res.status(200).json({
         message: 'Service successfully deleted',
         data: deletedService,
+      });
+    } catch (e) {
+      return next(e);
+    }
+  }
+
+  /**
+   * get all products in a service
+   *
+   * @static
+   * @param {object} req express request object
+   * @param {object} res express response object
+   * @param {object} next next middleware
+   * @returns {json} json object with status and service products data
+   */
+  static async getAllProductsInAService(req, res, next) {
+    try {
+      const { serviceId } = req.params;
+      const service = await Service.findByPk(serviceId, {
+        include: [{ model: Product, as: 'products' }],
+      });
+
+      return res.status(200).json({
+        message: 'Success',
+        data: service,
       });
     } catch (e) {
       return next(e);
