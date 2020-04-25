@@ -29,15 +29,20 @@ module.exports = (sequelize, DataTypes) => {
       },
       image: DataTypes.STRING(255),
       description: DataTypes.STRING(255),
+      admin_id: DataTypes.INTEGER,
     },
     {
       tableName: 'products',
     }
   );
-  Product.associate = ({ Service }) => {
+  Product.associate = ({ Service, Admin }) => {
     // associations can be defined here
     Product.belongsTo(Service, {
       foreignKey: 'service_id',
+    });
+
+    Product.belongsTo(Admin, {
+      foreignKey: 'admin_id',
     });
   };
 
