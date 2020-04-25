@@ -22,6 +22,9 @@ module.exports = {
       customer_id: {
         type: Sequelize.INTEGER,
       },
+      shipping_id: {
+        type: Sequelize.INTEGER,
+      },
       status: {
         type: Sequelize.ENUM('pending', 'ongoing', 'completed'),
         defaultValue: 'pending',
