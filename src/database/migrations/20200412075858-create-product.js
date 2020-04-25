@@ -22,6 +22,9 @@ module.exports = {
       description: {
         type: Sequelize.STRING,
       },
+      admin_id: {
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
