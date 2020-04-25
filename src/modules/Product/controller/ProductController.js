@@ -40,6 +40,7 @@ class ProductController {
         description,
         image,
         service_id: serviceId,
+        admin_id: req.user.sub,
       });
 
       return res.status(200).json({
