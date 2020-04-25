@@ -1,3 +1,5 @@
+import sequelizePaginate from 'sequelize-paginate';
+
 module.exports = (sequelize, DataTypes) => {
   const Order = sequelize.define(
     'Order',
@@ -18,16 +20,29 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: 'pending',
       },
       shipped_on: DataTypes.DATE,
-      reference: DataTypes.STRING(50),
+      reference: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        unique: true,
+        validate: {
+          notEmpty: true,
+        },
+      },
       comments: DataTypes.STRING(255),
-      customer_id: DataTypes.INTEGER,
+      customer_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
       shipping_id: DataTypes.INTEGER,
     },
     {
       tableName: 'orders',
     }
   );
-  Order.associate = ({ Customer, Shipping, OrderDetails }) => {
+  Order.associate = ({ Customer, Shipping, OrderDetail }) => {
     // associations can be defined here
     Order.belongsTo(Customer, {
       foreignKey: 'customer_id',
@@ -35,10 +50,11 @@ module.exports = (sequelize, DataTypes) => {
     Order.belongsTo(Shipping, {
       foreignKey: 'shipping_id',
     });
-    Order.hasMany(OrderDetails, {
+    Order.hasMany(OrderDetail, {
       as: 'orderItems',
       foreignKey: 'order_id',
     });
   };
+  sequelizePaginate.paginate(Order);
   return Order;
 };
