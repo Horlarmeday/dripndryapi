@@ -1,7 +1,7 @@
 /**
  * Customer controller handles all requests that has to do with customer
  *
- * - createCustomer - allow customers to create a new account
+ * - registerCustomer - allow customers to create a new account
  * - loginCustomer - allow customers to login to their account
  * - getCustomerProfile - allow customers to view their profile info
  * - updateCustomerProfile - allow customers to update their profile info like firstname, lastname, email, password, phone
@@ -28,13 +28,13 @@ class CustomerController {
    * @param {object} next next middleware
    * @returns {json} json object with status, customer data and access token
    */
-  static async createCustomer(req, res, next) {
+  static async registerCustomer(req, res, next) {
     const { error } = validateCustomer(req.body);
     if (error) return res.status(400).json(error.details[0].message);
 
     try {
       let customer = await Customer.findOne({ where: { phone: req.body.phone } });
-      if (customer) return res.status(400).json('Customer already exists');
+      if (customer) return res.status(400).json('Account already exists');
 
       const { firstname, lastname, phone, password, email } = req.body;
 
