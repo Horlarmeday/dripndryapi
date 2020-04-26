@@ -38,6 +38,7 @@ class ServiceController {
       const service = await Service.create({
         service_name,
         service_description,
+        admin_id: req.user.sub,
       });
 
       return res.status(200).json({
@@ -174,6 +175,8 @@ class ServiceController {
       const service = await Service.findByPk(serviceId, {
         include: [{ model: Product, as: 'products' }],
       });
+
+      if (!service) return res.status(404).json('Service not found');
 
       return res.status(200).json({
         message: 'Success',
