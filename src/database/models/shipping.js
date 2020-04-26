@@ -20,16 +20,21 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      admin_id: DataTypes.INTEGER,
     },
     {
       tableName: 'shipping',
     }
   );
-  Shipping.associate = ({ ShippingRegion }) => {
+  Shipping.associate = ({ ShippingRegion, Admin }) => {
     // associations can be defined here
     Shipping.belongsTo(ShippingRegion, {
       foreignKey: 'shipping_region_id',
       onDelete: 'CASCADE',
+    });
+
+    Shipping.belongsTo(Admin, {
+      foreignKey: 'admin_id',
     });
   };
   return Shipping;
