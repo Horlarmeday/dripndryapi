@@ -10,6 +10,8 @@ import error from '../middleware/error';
 import customerRoutes from '../modules/Customer/routes/CustomerRoutes';
 import serviceRoutes from '../modules/Service/routes/ServiceRoutes';
 import productRoutes from '../modules/Product/routes/ProductRoutes';
+import orderRoutes from '../modules/Order/routes/OrderRoutes';
+import adminRoutes from '../modules/Admin/routes/AdminRoutes';
 import './logger';
 
 const server = express();
@@ -35,6 +37,8 @@ server.use('/static', express.static(path.join(__dirname, '../public')));
 server.use('/api/v1/customer', customerRoutes);
 server.use('/api/v1/service', serviceRoutes);
 server.use('/api/v1/product', productRoutes);
+server.use('/api/v1/order', orderRoutes);
+server.use('/api/v1/admin', adminRoutes);
 
 server.use((req, res, next) => {
   // set the timeout for all HTTP requests
@@ -56,8 +60,7 @@ server.use((req, res, next) => {
 server.use(error);
 
 server.use((req, res, next) => {
-  const err = new Error('Resource does not exist');
-  err.status = 404;
+  const err = res.status(404).json('Resource does not exist');
   next(err);
 });
 
