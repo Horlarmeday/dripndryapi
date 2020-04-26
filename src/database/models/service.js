@@ -17,16 +17,21 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       service_description: DataTypes.STRING(255),
+      admin_id: DataTypes.INTEGER,
     },
     {
       tableName: 'services',
     }
   );
-  Service.associate = ({ Product }) => {
+  Service.associate = ({ Product, Admin }) => {
     // associations can be defined here
     Service.hasMany(Product, {
       as: 'products',
       foreignKey: 'service_id',
+    });
+
+    Service.belongsTo(Admin, {
+      foreignKey: 'admin_id',
     });
   };
 
