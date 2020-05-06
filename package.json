@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec babel-node src/app.js",
     "start": "node dist/app.js",
-    "build": "babel src --out-dir dist"
+    "build": "babel src --out-dir dist",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "keywords": [
     "laundry"
@@ -22,6 +23,7 @@
     "@babel/preset-env": "^7.7.1",
     "@babel/runtime": "^7.8.4",
     "babel-jest": "^24.9.0",
+    "braintree-jsdoc-template": "^3.3.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.6.0",
@@ -29,6 +31,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
+    "jsdoc-template": "^1.2.0",
     "prettier": "^1.19.1"
   },
   "dependencies": {
