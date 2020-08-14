@@ -8,11 +8,16 @@ const router = Router();
 router.post(
   '/:serviceId/create',
   verify,
-  authorize(Role.SuperAdmin, Role.Admin),
+  authorize([Role.SuperAdmin, Role.Admin]),
   ProductController.createNewProduct
 );
-router.put('/:id', verify, authorize(Role.SuperAdmin, Role.Admin), ProductController.updateProduct);
-router.get('/', authorize(Role.SuperAdmin, Role.Admin), ProductController.getAllProducts);
-router.delete('/', authorize(Role.SuperAdmin, Role.Admin), ProductController.deleteProduct);
+router.put(
+  '/:id',
+  verify,
+  authorize([Role.SuperAdmin, Role.Admin]),
+  ProductController.updateProduct
+);
+router.get('/', authorize([Role.SuperAdmin, Role.Admin]), ProductController.getAllProducts);
+router.delete('/', authorize([Role.SuperAdmin, Role.Admin]), ProductController.deleteProduct);
 
 export default router;

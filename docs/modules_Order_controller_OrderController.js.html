@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+      modules/Order/controller/OrderController.js - Documentation
+  </title>
+
+  <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+  
+
+  
+
+  <!-- start Mixpanel -->
+  <script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+  0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+  for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+  mixpanel.init("1919205b2da72e4da3b9b6639b444d59");</script>
+  <!-- end Mixpanel -->
+</head>
+
+<body>
+  <svg style="display: none;">
+    <defs>
+      <symbol id="linkIcon" fill="#706d77" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger" class="navicon-button x">
+    <div class="navicon"></div>
+  </label>
+
+  <label for="nav-trigger" class="overlay"></label>
+
+  <div class="top-nav-wrapper">
+    <ul>
+      <li >
+        <a href="index.html">
+          
+            <svg fill="#6D6D6D" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+          
+          
+        </a>
+      </li>
+
+      
+
+    </ul>
+  </div>
+
+  <nav>
+    <h3 class="reference-title">
+      Braintree SDK Client Reference
+    </h3>
+
+    
+
+    <h3>Classes</h3><ul><li id="CustomerController-nav"><a href="CustomerController.html">CustomerController</a><ul class='methods'><li data-type="method" id="CustomerController-getCustomerProfile-nav"><a href="CustomerController.html#.getCustomerProfile">getCustomerProfile</a></li><li data-type="method" id="CustomerController-loginCustomer-nav"><a href="CustomerController.html#.loginCustomer">loginCustomer</a></li><li data-type="method" id="CustomerController-registerCustomer-nav"><a href="CustomerController.html#.registerCustomer">registerCustomer</a></li><li data-type="method" id="CustomerController-updateCustomerProfile-nav"><a href="CustomerController.html#.updateCustomerProfile">updateCustomerProfile</a></li></ul></li><li id="OrderController-nav"><a href="OrderController.html">OrderController</a><ul class='methods'><li data-type="method" id="OrderController-changeOrderStatus-nav"><a href="OrderController.html#.changeOrderStatus">changeOrderStatus</a></li><li data-type="method" id="OrderController-createOrder-nav"><a href="OrderController.html#.createOrder">createOrder</a></li><li data-type="method" id="OrderController-getAllOrders-nav"><a href="OrderController.html#.getAllOrders">getAllOrders</a></li><li data-type="method" id="OrderController-getOneCustomerOrders-nav"><a href="OrderController.html#.getOneCustomerOrders">getOneCustomerOrders</a></li><li data-type="method" id="OrderController-getOneOrder-nav"><a href="OrderController.html#.getOneOrder">getOneOrder</a></li></ul></li><li id="ProductController-nav"><a href="ProductController.html">ProductController</a><ul class='methods'><li data-type="method" id="ProductController-createNewProduct-nav"><a href="ProductController.html#.createNewProduct">createNewProduct</a></li><li data-type="method" id="ProductController-deleteProduct-nav"><a href="ProductController.html#.deleteProduct">deleteProduct</a></li><li data-type="method" id="ProductController-getAllProducts-nav"><a href="ProductController.html#.getAllProducts">getAllProducts</a></li><li data-type="method" id="ProductController-updateProduct-nav"><a href="ProductController.html#.updateProduct">updateProduct</a></li></ul></li><li id="ServiceController-nav"><a href="ServiceController.html">ServiceController</a><ul class='methods'><li data-type="method" id="ServiceController-createNewService-nav"><a href="ServiceController.html#.createNewService">createNewService</a></li><li data-type="method" id="ServiceController-deleteService-nav"><a href="ServiceController.html#.deleteService">deleteService</a></li><li data-type="method" id="ServiceController-getAllProductsInAService-nav"><a href="ServiceController.html#.getAllProductsInAService">getAllProductsInAService</a></li><li data-type="method" id="ServiceController-getAllServices-nav"><a href="ServiceController.html#.getAllServices">getAllServices</a></li><li data-type="method" id="ServiceController-searchServices-nav"><a href="ServiceController.html#.searchServices">searchServices</a></li><li data-type="method" id="ServiceController-updateService-nav"><a href="ServiceController.html#.updateService">updateService</a></li></ul></li></ul><h3 id="global-nav">Global</h3><ul><li><a href="global.html#generateUniqueId">generateUniqueId</a></li></ul>
+  </nav>
+
+  <div id="main">
+    
+      <h1 class="page-title">
+        modules/Order/controller/OrderController.js
+      </h1>
+    
+
+    
+      
+
+<section>
+  <article>
+    <pre class="prettyprint source linenums"><code>/* eslint-disable camelcase */
+/**
+ * Order controller handles all requests that has to do with orders
+ *
+ * - createOrder -Create an order
+ * - getAllOrders - Returns a paginated list of orders
+ * - getOneOrder - Returns one order
+ * - getOneCustomerOrders - Returns all orders of a customer
+ * - getOrderSummary - Returns the details of an order
+ * - changeOrderStatus - allow admin to change an order status
+ * - processOrderPayment - process order payment
+ */
+import { generatedReference } from '../../../helpers/helper';
+import { validateNewOrder } from '../../../middleware/validations';
+
+const { Order, OrderDetail } = require('../../../database/models');
+
+const db = require('../../../database/models/index');
+
+/**
+ *
+ *
+ * @class OrderController
+ */
+class OrderController {
+  /**
+   * create an order
+   *
+   * @static
+   * @param {object} req express request object
+   * @param {object} res express response object
+   * @param {object} next next middleware
+   * @returns {json} json object with new order data
+   */
+  static async createOrder(req, res, next) {
+    const { error } = validateNewOrder(req.body);
+    if (error) return res.status(400).json(error.details[0].message);
+
+    const data = req.body;
+    const orderDetails = data.data;
+
+    try {
+      const result = await db.sequelize.transaction(async t => {
+        const order = await Order.create(
+          {
+            total_amount: data.total_amount,
+            comments: data.comments,
+            reference: generatedReference,
+            customer_id: req.user.customer_id,
+          },
+          { transaction: t }
+        );
+
+        const newOrderDetail = orderDetails.map(detail => ({
+          ...detail,
+          order_id: order.order_id,
+        }));
+
+        await OrderDetail.bulkCreate(newOrderDetail, { transaction: t });
+
+        return order;
+      });
+      return res.status(200).json({
+        message: 'Success, order created',
+        data: result,
+      });
+    } catch (e) {
+      return next(e);
+    }
+  }
+
+  /**
+   * get all orders
+   *
+   * @static
+   * @param {object} req express request object
+   * @param {object} res express response object
+   * @param {object} next next middleware
+   * @returns {json} json object with all orders data
+   */
+  static async getAllOrders(req, res, next) {
+    const { page } = req.query;
+    try {
+      const options = {
+        page,
+        paginate: 10,
+        order: [['order_id', 'DESC']],
+        include: [{ model: OrderDetail, as: 'orderItems' }],
+      };
+      const orders = await Order.paginate(options);
+      return res.status(200).json({
+        message: 'Success',
+        data: orders,
+      });
+    } catch (e) {
+      return next(e);
+    }
+  }
+
+  /**
+   * get one order
+   *
+   * @static
+   * @param {object} req express request object
+   * @param {object} res express response object
+   * @param {object} next next middleware
+   * @returns {json} json object with one order data
+   */
+  static async getOneOrder(req, res, next) {
+    try {
+      const { orderId } = req.params;
+      const order = await Order.findByPk(orderId, {
+        include: [{ model: OrderDetail, as: 'orderItems' }],
+      });
+
+      if (!order) return res.status(404).json('Order not found');
+
+      return res.status(200).json({
+        message: 'Success',
+        data: order,
+      });
+    } catch (e) {
+      return next(e);
+    }
+  }
+
+  /**
+   * get one customer order
+   *
+   * @static
+   * @param {object} req express request object
+   * @param {object} res express response object
+   * @param {object} next next middleware
+   * @returns {json} json object with one customer orders data
+   */
+  static async getOneCustomerOrders(req, res, next) {
+    try {
+      const options = {
+        paginate: 3,
+        order: [['order_id', 'DESC']],
+        where: { customer_id: req.user.customer_id },
+      };
+      const orders = await Order.paginate(options);
+
+      return res.status(200).json({
+        message: 'Success',
+        data: orders,
+      });
+    } catch (e) {
+      return next(e);
+    }
+  }
+
+  /**
+   * change an order status
+   *
+   * @static
+   * @param {object} req express request object
+   * @param {object} res express response object
+   * @param {object} next next middleware
+   * @returns {json} json object with one customer orders data
+   */
+  static async changeOrderStatus(req, res, next) {
+    const { orderId, status } = req.body;
+    try {
+      const order = await Order.findByPk(orderId);
+      if (!order) return res.status(404).json('Order not found');
+
+      const updatedOrder = await order.update({ status });
+      if (!updatedOrder) return res.status(400).json('Error occurred');
+
+      return res.status(200).json({
+        message: 'Success, order status changed!',
+        data: updatedOrder,
+      });
+    } catch (e) {
+      return next(e);
+    }
+  }
+}
+
+export default OrderController;
+</code></pre>
+  </article>
+</section>
+
+    
+
+
+  </div>
+
+  <br class="clear">
+
+  <footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a>
+  </footer>
+
+  <script src="scripts/linenumber.js"></script>
+  <script src="scripts/pagelocation.js"></script>
+
+  
+
+</body>
+</html>
