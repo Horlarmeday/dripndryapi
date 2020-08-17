@@ -45,7 +45,7 @@
     "express-rate-limit": "^5.0.0",
     "helmet": "^3.21.2",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mime": "^2.4.4",
     "mysql2": "^2.1.0",
     "paginate-info": "^1.0.4",
